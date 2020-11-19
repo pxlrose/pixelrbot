@@ -1,0 +1,19 @@
+{
+  "name": "pixelrbot",
+  "version": "1.0.0",
+  "description": "Bot da live da pixlrose",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "tmi.js": "^1.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
