@@ -60,14 +60,16 @@ function mensagemChegou(target, context, message, isBot) {
   let [commandName, argument] = message.trim().split(" ");
 
   if (saudacoes.includes(commandName.toLowerCase())) {
-    argument = argument.replace("@", "");
-    argument = argument.toLowerCase();
+    if (argument) {
+      argument = argument.replace("@", "");
+      argument = argument.toLowerCase();
 
-    if (argument == process.env.BOT_NAME) {
-      const index = Math.floor(Math.random() * mensagens.length);
+      if (argument === process.env.BOT_NAME) {
+        const index = Math.floor(Math.random() * mensagens.length);
 
-      const mensagem = mensagens[index];
-      client.say(target, `/me  ${username} ${mensagem}`);
+        const mensagem = mensagens[index];
+        client.say(target, `/me  ${username} ${mensagem}`);
+      }
     }
   }
 
@@ -93,6 +95,9 @@ function mensagemChegou(target, context, message, isBot) {
 
 function enteredTheChat(address, port) {
   console.log(`* Bot entrou no endereço ${address}:${port}`);
+  setTimeout(() => {
+    client.say(process.env.CHANNEL_NAME, "To on");
+  }, 1500);
 }
 
 const client = new tmi.client(config);
